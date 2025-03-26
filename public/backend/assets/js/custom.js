@@ -137,3 +137,25 @@ var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
 $(function () {
 	$(".card-loader").fadeOut(2000);
 });
+
+function logoutNow(event){
+    event.preventDefault();
+                        Swal.fire({
+        title: 'Sign out!',
+        text: 'You will be signed out?',
+        icon:'warning',
+        showDenyButton: true,
+        timerProgressBar: true,
+        timer:3000,
+        toast:true,
+        showCancelButton: false,
+        confirmButtonText: 'proceed',
+        denyButtonText: `Cancel`,
+    })
+    .then((result) => {
+        if (result.isConfirmed) {
+            document.getElementById('logout-form').submit();
+      }
+    });
+    
+}
